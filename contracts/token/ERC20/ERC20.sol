@@ -92,7 +92,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     function totalSupply() public view virtual override returns (uint256) {
         return _totalSupply;
     }
-
+ 
+  function totalSupply2() public view virtual override returns (uint256) {
+        return _totalSupply;
+    }
     /**
      * @dev See {IERC20-balanceOf}.
      */
@@ -237,7 +240,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * - `account` cannot be the zero address.
      */
-    function _mint(address account, uint256 amount) public virtual {
+    function _mint(address account, uint256 amount) internal virtual {
         require(account != address(0), "ERC20: mint to the zero address");
 
         _beforeTokenTransfer(address(0), account, amount);
